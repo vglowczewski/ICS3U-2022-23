@@ -33,6 +33,42 @@ public class CodingBatString1 {
         else
           return false;
       }
-    //
+    
+    //extraFont
+    public String extraFront(String str) {
+      if (str.length() >=2) {
+        String newStr = str.substring(0,2);
+        return newStr + newStr + newStr;
+      }
+      else
+        return str + str + str;
+    
+    }
+    //withoutEnd
+    public String withoutEnd(String str) {
+      return str.substring(1,str.length()-1);
+    }
+
+    //withoutEnd2
+    public String withouEnd2(String str) {
+      if (str.length() <= 2)
+        return "";
+      else
+        return str.substring(1,str.length()-1);
+    }
+
+    //hasBad
+    public boolean hasBad(String str) {
+      if (str.length() <= 2) 
+        return false;
+      else if (str.indexOf("bad") == 0 || str.indexOf("bad") == 1)
+        return true;
+      else
+        return false;
+      
+    }
+    
+        
+    
       
 }
