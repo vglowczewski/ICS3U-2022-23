@@ -50,8 +50,21 @@ public class Blackjack {
 
     }
     private static boolean promptPlayAgain() {
-        return false;
+        boolean validAnswer = false;
+
+        while (!validAnswer){
+            System.out.println("Play Again ([y]es/[n]o)?");
+            String answer = in.nextLine().toLowerCase();
+            if(answer.equals("yes") || answer.equals("y")){
+                return true;
+            }
+            else if (answer.equals("no") || answer.equals("n"))
+                return false;
+        }
+
+        return true;
     }
+
     // returns the amount the player won, negative value if they lost. 
     private static int playHand(String playerHand, String dealerHand, int bet) {
         return 0;
