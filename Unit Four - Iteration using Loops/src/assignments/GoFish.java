@@ -16,7 +16,6 @@ public class GoFish {
     private static final String ACE = "A";
     private static final String QUEEN = "Q";
     private static final String KING = "K";
-    private static final String VALID_INPUT = "2345678910JQKA";
 
     public static void main(String[] args) {
         boolean stillPlaying = true;
@@ -320,7 +319,6 @@ public class GoFish {
 
     private static String removeCard(String hand, String card) {
         String compareCard = "";
-        int matches = 0;
         String result = "";
         hand = cleanTens(hand, true);
         for(int j = 0; j < hand.length() - 1; j += 3){
@@ -357,12 +355,6 @@ public class GoFish {
             cardRequest = cardRequest.substring(0,1);
             if(player.indexOf(cardRequest) >= 0) {
                 validInput = true;
-                // if(cardRequest.equals("1")){
-                //     validInput = true;
-                //     }
-                // else if(VALID_INPUT.indexOf(cardRequest) >= 0){
-                //     validInput = true;
-                //     }
             } else{
             System.out.print("Please ask for a VALID card: ");
             cardRequest = (in.nextLine()).toUpperCase();
