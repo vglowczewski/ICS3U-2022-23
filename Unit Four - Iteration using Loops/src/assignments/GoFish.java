@@ -144,6 +144,11 @@ public class GoFish {
         }
     }
     if(stillPlaying == false) { //  if one of the player's reaches 10 or more points
+    //display all the players' final scores to the screen
+    System.out.println("player score: " + scorePlayer);
+    System.out.println("computer1 score: " + score1);
+    System.out.println("computer2 score: " + score2);
+    System.out.println("computer3 score: " + score3);
     boolean reset = playAgain(); // ask if the player wants to play again
         if(reset){ //   if yes, reset all the variable values and reprint the instructions
             stillPlaying = true;
@@ -187,9 +192,7 @@ public class GoFish {
             System.out.println("--------------");
             System.out.println("|  CONGRATS! |");
             System.out.println("|     1st    |");
-            System.out.println("|            |");
             System.out.println("--------------");
-
 
             return false;
             
