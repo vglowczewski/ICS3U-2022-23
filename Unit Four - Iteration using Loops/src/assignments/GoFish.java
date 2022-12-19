@@ -249,6 +249,8 @@ public class GoFish {
       String player = "";
       String newCard = "";
       int index = 0;
+
+      // asking player 1
       if(playerRequest == 1){
         System.out.println("--> " + label + "asks you for a " + cardRequest);   //prints out the card that the computer requests
         index = player1.indexOf(cardRequest);  
@@ -262,6 +264,7 @@ public class GoFish {
         player = player1;
 
       }
+      // asking player 2
       else if(playerRequest == 2){
         System.out.println("--> " + label + "asks for a " + cardRequest);
         index = player2.indexOf(cardRequest);
@@ -274,7 +277,7 @@ public class GoFish {
             }
         player = player2;
       }
-
+      // asking player 3
       else if(playerRequest == 3){
         System.out.println("--> " + label + "asks for a " + cardRequest);
         index = player3.indexOf(cardRequest);
@@ -326,8 +329,6 @@ public class GoFish {
 
         }
         
-        
-
 
     // Removes card from hand passed in
     private static String removeCard(String hand, String card) {
@@ -344,7 +345,7 @@ public class GoFish {
     }
 
 
-
+    // gives the player a new card (value + suit) when they go fish 
     private static String goFish(String label) {
         if(label.equals("player: ")){
         System.out.println("--> You had to GO FISH!");
@@ -354,7 +355,6 @@ public class GoFish {
         }
         return getValue() + getSuit();  //gets a random card with a random suit
     }
-
 
 
     // gets the player's card request
@@ -387,7 +387,7 @@ public class GoFish {
             System.out.print("Which computer (1, 2, or 3) would you like to ask? ");
             playerNum = in.nextLine();
             playerNum = playerNum.substring(0,1);
-            if(!("123".indexOf(playerNum) < 0)){
+            if(!("123".indexOf(playerNum) < 0)){    //ensure that player asks for a VALID computer
                 validPlayer = true;
             }
         }
@@ -411,7 +411,7 @@ public class GoFish {
         return result;
     }
 
-    // gets the score
+    // gets the score from the string passed in
     private static int getScore(String hand) {
         int score = 0;
         score = Integer.parseInt(hand.substring(hand.indexOf("~")+1));
@@ -437,9 +437,9 @@ public class GoFish {
         }
 
         if (matches > 1)
-            return result;
+            return result;  //if there were matches return updated hand
         else
-            return hand;
+            return hand;    //return the hand passed in if there were no matches
        
 
     }
@@ -463,7 +463,7 @@ public class GoFish {
         
         return cards;
 }
-
+    // goes through each hand and removes pairs. attaches the points at the end of the string separated by ~
     private static String checkCards(String cards) {
         String currCard = "";
 
@@ -480,12 +480,11 @@ public class GoFish {
         for(int i = 0; i < cards.length() - 1; i += 3){
             currCard = cards.substring(i,i+1);  // checks each of the cards
             String temp = removePairs(cards, currCard); //goes through each card and checks if there is a pair
-            if (!(cards.length() == (temp.length()))) {
+            if (!(cards.length() == (temp.length()))) { //check if length is different
                 points += ((cards.length() - temp.length())-2)/2;
-                cards = temp;
-                i-=3;
+                cards = temp; //change the value of cards to the shortened string
+                i-=3; // minus 3 to reset i
             }
-            //check length that is the same, if not i-6 (bc it will add 3 at the end, so its like minusing 3), if it is increment by 3
         }
 
         //reinsert the 0 for the 10s
