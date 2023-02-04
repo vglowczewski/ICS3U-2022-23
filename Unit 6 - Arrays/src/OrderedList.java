@@ -32,7 +32,7 @@ public class OrderedList {
     private void increaseCapacity(int newCapacity) {
         int[] temp = new int[newCapacity];
 
-        for(int i = 0; i < data.length; i++){   //need to iterate through data so index is not greater than allowed
+        for(int i = 0; i < data.length; i++){   //need to iterate through array "data" so index is not greater than allowed
             temp[i] = data[i];
         }
 
